@@ -1,6 +1,9 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
-import Registration from './components/registration';
+import { BrowserRouter, Route } from 'react-router-dom';
+import Header from './components/header';
+import Footer from './components/footer';
+import Login from './components/login';
+import Register from './components/registration';
 import './App.css';
 
 class App extends React.Component {
@@ -9,11 +12,17 @@ class App extends React.Component {
     return (
       <div className="App">
         <header className="App-header">
-        Header will go here
+          <Header />
         </header>
         <main className='App_main'>
-        <Route exact path={'/register'} component={Registration} />
+        <BrowserRouter>
+          <Route exact path={'/login'} component={Login} />
+          <Route exact path={'/register'} component={Register} />
+        </BrowserRouter>
         </main>
+        <footer>
+          <Footer/>
+        </footer>
       </div>
     );
   }

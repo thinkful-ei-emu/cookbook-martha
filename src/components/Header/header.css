@@ -1,0 +1,9 @@
+.link{
+  float: right;
+}
+
+.header{
+  display: inline-block;
+  width: 90%;
+  margin: 10px;
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Results () {
+function Results (props) {
   const testresults = [    {
     title: 'recipe 1',
   },

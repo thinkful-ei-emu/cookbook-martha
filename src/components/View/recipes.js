@@ -1,39 +1,31 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import CookbookContext from '../../contexts/CookbookContext';
 
-function Recipes () {
-  const recipes =[
-    {
-      id: 1,
-      title: 'recipe 1',
-      cookbook_id: 1,
-    },
-    {
-      id: 2,
-      title: 'recipe 2',
-      cookbook_id: 4,
-    },
-    {
-      id: 3,
-      title: 'recipe 3',
-      cookbook_id: 2,
-    },
-]
+class Recipes extends React.Component {
+static contextType = CookbookContext
 
-const recipe = recipes.map((recipe, index) => 
-  <li key={index}>
-    {recipe.title}
-  </li>
-  )
-
+render() {
   return (
     <>
     <ul>
-      {recipe}
+      {this.context.recipes.map((recipe, index) => 
+        <li key={index}>
+          Title:{recipe.title} <br/>
+          Author: <br/>
+          Serving Size: <br/>
+          Cook Time: _minutes<br/>
+          Difficulty: <br/>
+          Meal Type:{recipe.meal_type} <br/>
+          Ingredients: <br/>
+          Instructions: <br/><br/>
+        </li>
+      
+      )}
     </ul>
     <Link to={'/view'}>Back</Link>
     </>
   );
-}
+}}
 
 export default Recipes;

@@ -8,9 +8,38 @@ import MainPage from './components/main_page';
 import Search from './components/Search/search';
 import Create from './components/Create/create';
 import View from './components/View/view';
+import Recipes from './components/View/recipes'
 import './App.css';
 
 class App extends React.Component {
+  state = {
+    cookbooks: [],
+    recipes: [],
+    // error: false,
+    // errorMessage: ''
+  };
+
+  addCookbook = cookbook => {
+    this.setState({
+      cookbooks: [...this.state.cookbooks, cookbook]
+    })
+  };
+
+  addRecipe = recipe => {
+    this.setState({
+      recipes: [...this.state.recipes, recipe]
+    })
+  };
+
+  deleteCookbook = cookbookId => {
+    const newCookbooks = this.state.cookbooks.filter(cookbook => cookbook.id !== cookbookId);
+
+    this.setState({
+      cookbooks: newCookbooks
+    })
+  };
+
+  
 
   render() {
     return (
@@ -24,6 +53,7 @@ class App extends React.Component {
           <Route exact path={'/search'} component={Search} />
           <Route exact path={'/create'} component={Create} />
           <Route exact path={'/view'} component={View} />
+          <Route exact path={'/recipes/:cookbook_id'} component={Recipes} />
         </main>
         {/* <Footer/> */}
       </div>

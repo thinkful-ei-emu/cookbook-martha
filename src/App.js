@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Header from './components/Header/header';
-//import Footer from './components/Footer/footer';
+import Footer from './components/Footer/footer';
 import Login from './components/Login_Forms/login';
 import Register from './components/Login_Forms/registration';
 import MainPage from './components/main_page';
@@ -10,13 +10,14 @@ import Create from './components/Create/create';
 import View from './components/View/view';
 import Recipes from './components/View/recipes'
 import './App.css';
+import CookbookContext from './contexts/CookbookContext';
 
 class App extends React.Component {
   state = {
     cookbooks: [],
     recipes: [],
-    // error: false,
-    // errorMessage: ''
+    error: false,
+    errorMessage: ''
   };
 
   addCookbook = cookbook => {
@@ -39,14 +40,36 @@ class App extends React.Component {
     })
   };
 
-  
+  componentDidMount() {
+    fetch('http://localhost:8000/api/cookbooks')
+      .then(res => res.json())
+      .then(cookbooks => this.setState({
+        cookbooks: cookbooks
+      }))
+      
+      fetch('http://localhost:8000/api/recipes')
+      .then(res => res.json())
+      .then(recipes => this.setState({
+        recipes: recipes
+      }))
+  }
 
   render() {
     return (
-      <BrowserRouter>
+      <CookbookContext.Provider
+      value={{
+        cookbooks: this.state.cookbooks,
+        recipes: this.state.recipes,
+        addCookbook: this.addCookbook,
+        addRecipe: this.addRecipe,
+        deleteCookbook: this.deleteCookbook
+      }}
+      >
       <div className="App">
+      <BrowserRouter>
         <Header />
         <main className='App_main'>
+          {this.state.hasError && <p>There was an error! Oh no!</p>}
           <Route exact path={'/login'} component={Login} />
           <Route exact path={'/register'} component={Register} />
           <Route exact path={'/'} component={MainPage} />
@@ -55,9 +78,10 @@ class App extends React.Component {
           <Route exact path={'/view'} component={View} />
           <Route exact path={'/recipes/:cookbook_id'} component={Recipes} />
         </main>
-        {/* <Footer/> */}
+        <Footer/>
+        </BrowserRouter>
       </div>
-      </BrowserRouter>
+      </CookbookContext.Provider>
     );
   }
 }

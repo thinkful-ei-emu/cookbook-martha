@@ -11,17 +11,17 @@ render() {
     <ul>
       {this.context.recipes.map((recipe, index) => 
         <li key={index}>
-          Title:{recipe.title} <br/>
-          Author: <br/>
-          Serving Size: <br/>
-          Cook Time: _minutes<br/>
-          Difficulty: <br/>
-          Meal Type:{recipe.meal_type} <br/>
-          Ingredients: <br/>
-          Instructions: <br/><br/>
-        </li>
-      
-      )}
+          Title: {recipe.title} <br/>
+          Author: {recipe.author} <br/>
+          Serving Size: {recipe.serving_size} <br/>
+          Cook Time: {recipe.cook_time} minutes<br/>
+          Difficulty: {recipe.difficulty}<br/>
+          Meal Type: {recipe.meal_type} <br/>
+          Ingredients: {recipe.ingredients.map((item, index)=>
+          <p key={index}>{item}</p>)}<br/>
+          Instructions: {recipe.instruction.map((item, index) => 
+          <p key={index}>{item}</p>)}<br/><br/>
+        </li>)}
     </ul>
     <Link to={'/view'}>Back</Link>
     </>

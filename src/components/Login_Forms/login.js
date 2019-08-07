@@ -1,11 +1,44 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import TokenService from '../../services/token-service';
+import AuthApiService from '../../services/auth-api-service';
 
-function Login () {
+class Login extends React.Component {
+  static defaultProps={
+    onLoginSuccess: () => {}
+  }
+
+  state = { error: null }
+
+  handleSubmitJwtAuth = ev => {
+    ev.preventDefault()
+    this.setState({error: null})
+    const { user_name, password} = ev.target;
+
+    AuthApiService.postLogin({
+      user_name: user_name.value,
+      password: password.value
+    })
+      .then(res => {
+        user_name.value = '';
+        password.value = '';
+        TokenService.saveAuthToken(res.authToken)
+        this.props.onLoginSuccess()
+      })
+      .catch(res => {
+        this.setState({error: res.error})
+      })
+  }
+
+  render() {
+    const { error } = this.state
   return (
     <div>
     <h2> User Login </h2>
     <form className='login_form'>
+      <div role='alert'>
+        {error && <p className='red'>{error}</p>}
+      </div>
       <label> Username </label>
       <input 
       name='user_name'
@@ -18,11 +51,11 @@ function Login () {
       type='text' 
       placeholder='your password'
       required />
-      <button>LOGIN</button>
+      <button type="submit">Login</button>
       <Link to={'/register'}> Create Account </Link>
     </form>
     </div>
   );
-}
+}}
 
 export default Login;

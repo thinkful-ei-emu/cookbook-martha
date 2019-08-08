@@ -5,10 +5,19 @@ import AuthApiService from '../../services/auth-api-service';
 
 class Login extends React.Component {
   static defaultProps={
-    onLoginSuccess: () => {}
+    location: {},
+    history: {
+      push: () => {}
+    }
   }
 
   state = { error: null }
+
+  handleLoginSuccess = () => {
+    const { location, history } = this.props;
+    const destination = (location.state || {}).from || '/';
+    history.push(destination)
+  }
 
   handleSubmitJwtAuth = ev => {
     ev.preventDefault()
@@ -23,7 +32,7 @@ class Login extends React.Component {
         user_name.value = '';
         password.value = '';
         TokenService.saveAuthToken(res.authToken)
-        this.props.onLoginSuccess()
+        this.handleLoginSuccess()
       })
       .catch(res => {
         this.setState({error: res.error})
@@ -34,8 +43,10 @@ class Login extends React.Component {
     const { error } = this.state
   return (
     <div>
-    <h2> User Login </h2>
-    <form className='login_form'>
+    <h2> Login Here </h2>
+    <form 
+    onSubmit={this.handleSubmitJwtAuth}
+    className='login_form'>
       <div role='alert'>
         {error && <p className='red'>{error}</p>}
       </div>
@@ -48,11 +59,11 @@ class Login extends React.Component {
       <label> Password </label>
       <input 
       name='password'
-      type='text' 
+      type='password' 
       placeholder='your password'
       required />
       <button type="submit">Login</button>
-      <Link to={'/register'}> Create Account </Link>
+      <Link to={'/register'}> Need an Account? Create Account Here </Link>
     </form>
     </div>
   );

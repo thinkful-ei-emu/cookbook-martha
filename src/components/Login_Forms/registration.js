@@ -4,13 +4,19 @@ import AuthApiService from '../../services/auth-api-service';
 
 export default class Register extends Component {
   static defaultProps = {
-    onRegistrationSuccuss: () => {}
+    history: {
+      push:() => {},
+    },
   }
-
   state = {error: null}
 
+  handleRegistrationSuccess = user => {
+    const { history } = this.props;
+    history.push('/login')
+  }
+
   handleSubmit = e => {
-    e.preventDefualt();
+    e.preventDefault();
     const { full_name, user_name, password } = e.target
 
     this.setState({
@@ -25,7 +31,7 @@ export default class Register extends Component {
         full_name.value=''
         user_name.value=''
         password.value=''
-        this.props.onRegistrationSuccuss()
+        this.handleRegistrationSuccess()
       })
       .catch(res => {
         this.setState({ error: res.error })
@@ -35,11 +41,13 @@ export default class Register extends Component {
   render() {
     const { error } = this.state
     return (
-      <form className='registration_form'>
+      <form className='registration_form'
+      onSubmit={this.handleSubmit}>
        <div role='alert'>
           {error && <p className='red'>{error}</p>}
       </div>
         <h4>Ready to start organizing your own cookbooks!</h4>
+        <p>Create your account today!</p>
       <label>Full Name</label>
       <input
       name='full_name'
@@ -53,9 +61,9 @@ export default class Register extends Component {
       <label>Password</label>
       <input
       name='password'
-      type='text'
+      type='password'
       required/>
-      <button>Submit</button>
+      <button type="submit">Submit</button>
       <Link to={'/login'}>Already have an account? Login here.</Link>
       </form>
     )

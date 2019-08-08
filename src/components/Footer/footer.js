@@ -3,7 +3,7 @@ import './footer.css';
 
 function Footer () {
   return (
-    <footer className="app-footer">footer information will go here</footer>
+    <footer className="app-footer">developed by Martha Plantz August 2019</footer>
   )
 }
 

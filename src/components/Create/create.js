@@ -1,5 +1,6 @@
 import React from 'react';
 import CookbookContext from '../../contexts/CookbookContext';
+import { Link } from 'react-router-dom'
 
 class Create extends React.Component {
     state = {
@@ -207,8 +208,9 @@ class Create extends React.Component {
       ? ''
       : this.state.instruction.map((instruction, index)=>  <li key={index}>{instruction}</li>)}
       <br/><br/>
-      <button type="submit">Create Recipe</button>
+      <button type="reset">Reset</button> <button type="submit">Create Recipe</button>
       </form>
+      <Link to='/'>Return Home</Link>
     </div>
   )
 }}

@@ -82,6 +82,7 @@ class View extends React.Component {
         >Delete Cookbook</button>
       </li>)}
       </ul>
+      <Link to='/'>Return Home</Link>
       </section>
     );
 }}

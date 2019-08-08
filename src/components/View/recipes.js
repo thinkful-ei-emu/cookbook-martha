@@ -17,10 +17,14 @@ render() {
           Cook Time: {recipe.cook_time} minutes<br/>
           Difficulty: {recipe.difficulty}<br/>
           Meal Type: {recipe.meal_type} <br/>
-          Ingredients: {recipe.ingredients.map((item, index)=>
-          <p key={index}>{item}</p>)}<br/>
-          Instructions: {recipe.instruction.map((item, index) => 
-          <p key={index}>{item}</p>)}<br/><br/>
+          Ingredients: 
+          <ul>{recipe.ingredients.map((item, index)=>
+          <li key={index}>{item}</li>)}<br/>
+          </ul>
+          Instructions: 
+          <ul>{recipe.instruction.map((item, index) => 
+          <li key={index}>{item}</li>)}<br/><br/>
+          </ul>
         </li>)}
     </ul>
     <Link to={'/view'}>Back</Link>

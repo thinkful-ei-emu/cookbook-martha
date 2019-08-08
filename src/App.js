@@ -1,7 +1,9 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import Header from './components/Header/header';
 import Footer from './components/Footer/footer';
+import PrivateRoute from './components/Utils/PrivateRoute';
+import PublicRoute from './components/Utils/PublicOnlyRoute';
 import Login from './components/Login_Forms/login';
 import Register from './components/Login_Forms/registration';
 import MainPage from './components/main_page';
@@ -70,13 +72,13 @@ class App extends React.Component {
         <Header />
         <main className='App_main'>
           {this.state.hasError && <p>There was an error! Oh no!</p>}
-          <Route exact path={'/login'} component={Login} />
-          <Route exact path={'/register'} component={Register} />
-          <Route exact path={'/'} component={MainPage} />
-          <Route exact path={'/search'} component={Search} />
-          <Route exact path={'/create'} component={Create} />
-          <Route exact path={'/view'} component={View} />
-          <Route exact path={'/recipes/:cookbook_id'} component={Recipes} />
+          <PublicRoute exact path={'/login'} component={Login} />
+          <PublicRoute exact path={'/register'} component={Register} />
+          <PrivateRoute exact path={'/'} component={MainPage} />
+          <PrivateRoute exact path={'/search'} component={Search} />
+          <PrivateRoute exact path={'/create'} component={Create} />
+          <PrivateRoute exact path={'/view'} component={View} />
+          <PrivateRoute exact path={'/recipes/:cookbook_id'} component={Recipes} />
         </main>
         <Footer/>
         </BrowserRouter>

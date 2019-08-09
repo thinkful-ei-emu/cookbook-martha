@@ -11,7 +11,9 @@ class Login extends React.Component {
     }
   }
 
-  state = { error: null }
+  state = { 
+    error: null, 
+  }
 
   handleLoginSuccess = () => {
     const { location, history } = this.props;
@@ -48,7 +50,7 @@ class Login extends React.Component {
     onSubmit={this.handleSubmitJwtAuth}
     className='login_form'>
       <div role='alert'>
-        {error && <p className='red'>{error}</p>}
+        {error && <p className='red'>Oops..{error}</p>}
       </div>
       <label> Username </label>
       <input 

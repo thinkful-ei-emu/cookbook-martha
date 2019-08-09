@@ -3,6 +3,9 @@ import CookbookContext from '../../contexts/CookbookContext';
 import { Link } from 'react-router-dom'
 
 class Create extends React.Component {
+  staticDefaultProps={
+
+  }
     state = {
       title: '',
       author: '',
@@ -13,7 +16,8 @@ class Create extends React.Component {
       ingredients: [],
       instruction: [],
       newIngredient: '',
-      newInstruction: ''
+      newInstruction: '',
+      cookbook: ''
     }
   static contextType = CookbookContext;
 
@@ -78,6 +82,12 @@ class Create extends React.Component {
       newInstruction: ''
     })
   }
+
+  setSelectCookbook = (cookbook) => {
+    this.setState({
+      cookbook: cookbook
+    })
+  }
   
   handleCreateFrom = (e) => {
     e.preventDefault()
@@ -105,15 +115,17 @@ class Create extends React.Component {
       }
       return res.json()
     })
-    .then(res => {
-      this.title=''
-      this.author=''
-      this.serving_size=null
-      this.cook_time=null
-      this.difficulty=''
-      this.meal_type=''
-      this.ingredients=[]
-      this.instruction=[]
+    .then(res => { 
+      this.setState({
+      title:'',
+      author:'',
+      serving_size:null,
+      cook_time:null,
+      difficulty:'',
+      meal_type:'',
+      ingredients:[],
+      instruction:[],
+    })
       this.context.addRecipe(res)
     });
   };
@@ -128,6 +140,7 @@ class Create extends React.Component {
       <input
       type="text"
       name="title"
+      required
       onChange={e => this.setTitle(e.target.value)}/>
       <br/>
       <label>Author:</label>
@@ -140,19 +153,21 @@ class Create extends React.Component {
       <input
       type="number"
       name="serving"
+      required
       onChange={e => this.setServingSize(e.target.value)}/> servings
       <br/>
       <label>Cook Time:</label>
       <input
       type="number"
       name="time"
+      required
       onChange={e => this.setCookTime(e.target.value)}/> minutes
       <br/>
       <label>Difficulty:</label>
       <select
       onChange={e => this.setDifficulty(e.target.value)}>
       > 
-        <option>Choose a Difficulty</option>
+        <option required>Choose a Difficulty</option>
         <option value="beginner">Beginner</option>
         <option value="intermediate">Intermediate</option>
         <option value="advanced">Advanced</option>
@@ -163,7 +178,7 @@ class Create extends React.Component {
       <select
       onChange={e => this.setMealType(e.target.value)}
       >
-        <option>Choose a Meal Type</option>
+        <option required>Choose a Meal Type</option>
         <option value="breakfast">Breakfast</option>
         <option value="lunch">Lunch</option>
         <option value="dinner">Dinner</option>

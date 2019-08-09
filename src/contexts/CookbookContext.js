@@ -6,7 +6,6 @@ const CookbookContext = React.createContext({
   addCookbook: () => {},
   addRecipe: () => {},
   deleteCookbook: () => {},
-  editRecipe: () => {},
   editCookbook: () => {}
 })
 

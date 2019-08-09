@@ -9,6 +9,8 @@ import Register from './components/Login_Forms/registration';
 import MainPage from './components/main_page';
 import Search from './components/Search/search';
 import Create from './components/Create/create';
+import ListRecipes from './components/Create/list_recipes'
+import List from './components/Create/list';
 import View from './components/View/view';
 import Recipes from './components/View/recipes'
 import './App.css';
@@ -42,6 +44,15 @@ class App extends React.Component {
     })
   };
 
+  editCookbook = updatedCookbook => {
+    this.setState({
+      cookbooks: this.state.cookbooks.map(cookbook => 
+        (cookbook.id !== updatedCookbook.id) 
+        ? cookbook
+        : updatedCookbook)
+    })
+  }
+
   componentDidMount() {
     fetch('http://localhost:8000/api/cookbooks')
       .then(res => res.json())
@@ -64,7 +75,8 @@ class App extends React.Component {
         recipes: this.state.recipes,
         addCookbook: this.addCookbook,
         addRecipe: this.addRecipe,
-        deleteCookbook: this.deleteCookbook
+        deleteCookbook: this.deleteCookbook,
+        editCookbook: this.editCookbook
       }}
       >
       <div className="App">
@@ -77,6 +89,8 @@ class App extends React.Component {
           <PrivateRoute exact path={'/'} component={MainPage} />
           <PrivateRoute exact path={'/search'} component={Search} />
           <PrivateRoute exact path={'/create'} component={Create} />
+          <PrivateRoute exact path={'/recipes'} component={ListRecipes}/>
+          <PrivateRoute exact path={'/list/:recipe_id'} component={List}/>
           <PrivateRoute exact path={'/view'} component={View} />
           <PrivateRoute exact path={'/recipes/:cookbook_id'} component={Recipes} />
         </main>

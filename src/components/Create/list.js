@@ -15,7 +15,7 @@ class List extends React.Component{
     this.setState({
       cookbookChoice: cookbook_id
     })
-    fetch(`http://localhost:8000/api/cookbooks/${cookbook_id}`)
+    fetch(`https://infinite-eyrie-86661.herokuapp.com/cookbooks/${cookbook_id}`)
     .then(res => {
       if(!res.ok){
         return res.json().then(e => {throw e})
@@ -35,7 +35,7 @@ class List extends React.Component{
     const recipeId = parseInt(recipe_id)
     this.state.recipe.push(recipeId)
     const updatedCookbook = {recipes: this.state.recipe}
-    fetch(`http://localhost:8000/api/cookbooks/${cookbookId}`, {
+    fetch(`https://infinite-eyrie-86661.herokuapp.com/cookbooks/${cookbookId}`, {
       method: 'PATCH',
       body: JSON.stringify(updatedCookbook),
       headers: { 

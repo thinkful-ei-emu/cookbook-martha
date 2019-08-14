@@ -10,7 +10,7 @@ class seeMore extends React.Component {
   }
 
   componentDidMount = () => {
-    fetch(`http://localhost:8000/api/recipes/${this.props.match.params.recipe_id}`)
+    fetch(`https://infinite-eyrie-86661.herokuapp.com/recipes/${this.props.match.params.recipe_id}`)
       .then(res=> res.json())
       .then(recipe => this.setState({
         recipe: recipe

@@ -23,7 +23,7 @@ class View extends React.Component {
     const newCookbook = { 
       title: title
     }
-    fetch('http://localhost:8000/api/cookbooks', {
+    fetch('https://infinite-eyrie-86661.herokuapp.com/cookbooks', {
       method: 'POST',
       body: JSON.stringify(newCookbook),
       headers: {
@@ -45,7 +45,7 @@ class View extends React.Component {
   };
 
   handleDeleteCookbook = (cookbookId, callback) => {
-    fetch(`http://localhost:8000/api/cookbooks/${cookbookId}`, {
+    fetch(`https://infinite-eyrie-86661.herokuapp.com/cookbooks/${cookbookId}`, {
       method: 'DELETE',
       headers: {
         'content-type': 'application/json'
@@ -62,7 +62,7 @@ class View extends React.Component {
   }
 
   getACookbook = (cookbookId) => {
-    fetch(`http://localhost:8000/api/cookbooks/${cookbookId}`)
+    fetch(`https://infinite-eyrie-86661.herokuapp.com/cookbooks/${cookbookId}`)
     .then(res => res.json())
     .then(cookbook => this.selectRecipes(cookbook[0].recipes))
   }

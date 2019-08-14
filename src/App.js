@@ -54,13 +54,13 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:8000/api/cookbooks')
+    fetch('https://infinite-eyrie-86661.herokuapp.com/cookbooks')
       .then(res => res.json())
       .then(cookbooks => this.setState({
         cookbooks: cookbooks
       }))
       
-      fetch('http://localhost:8000/api/recipes')
+      fetch('https://infinite-eyrie-86661.herokuapp.com/recipes')
       .then(res => res.json())
       .then(recipes => this.setState({
         recipes: recipes

@@ -110,7 +110,7 @@ class Create extends React.Component {
       ingredients: ingredients,
       instruction: instruction
     }
-    fetch('http://localhost:8000/api/recipes', {
+    fetch('https://infinite-eyrie-86661.herokuapp.com/recipes', {
       method: 'POST',
       body: JSON.stringify(recipe),
       headers: {

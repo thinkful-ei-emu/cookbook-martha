@@ -1,0 +1,52 @@
+/* form style */
+.add-cookbook button{
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.add-cookbook input {
+  padding: 7px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.view-all fieldset{
+  margin: auto;
+  margin-bottom: 50px;
+  padding-top: 20px;
+  padding-bottom: 30px;
+  width: 700px;
+}
+
+.cook{
+  width: 45%;
+}
+
+/* list stylying */
+.delete-cookbook{
+  background-color: rgba(147, 23, 147, 0.865);
+  color: white;
+  width: 90px;
+  margin-left: 5px;
+}
+
+.view-cookbook{
+  width: 90px;
+  margin-right:5px;
+}
+
+.buttons{
+  margin: auto;
+  margin-top: 10px;
+}
+
+.cookbook-title{
+  margin-bottom: 40px;
+}
+
+.view-all{
+  margin-bottom: 100px;
+}
+
+

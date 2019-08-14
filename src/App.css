@@ -1,6 +1,15 @@
+*{
+  box-sizing: border-box;
+  font-weight: 300;
+}
+
 .App {
   text-align: center;
 }
 
+ul{
+  list-style: none;
+  padding-left: 0;
+}
 
 

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import TokenService from '../../services/token-service';
 import AuthApiService from '../../services/auth-api-service';
+import './login.css';
 
 class Login extends React.Component {
   static defaultProps={
@@ -45,26 +46,29 @@ class Login extends React.Component {
     const { error } = this.state
   return (
     <div>
-    <h2> Login Here </h2>
+    <h4> Welcome Back! Ready to start cooking? </h4>
+    <p>User Login</p>
     <form 
     onSubmit={this.handleSubmitJwtAuth}
     className='login_form'>
       <div role='alert'>
         {error && <p className='red'>Oops..{error}</p>}
       </div>
-      <label> Username </label>
+      <fieldset name="login">
+      <label for="username"> Username </label>
       <input 
       name='user_name'
       type='text' 
       placeholder='your username'
       required />
-      <label> Password </label>
+      <label for="password"> Password </label>
       <input 
       name='password'
       type='password' 
       placeholder='your password'
       required />
       <button type="submit">Login</button>
+      </fieldset>
       <Link to={'/register'}> Need an Account? Create Account Here </Link>
     </form>
     </div>

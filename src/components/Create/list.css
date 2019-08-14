@@ -1,0 +1,17 @@
+.select-cook fieldset{
+  width: 700px;
+  padding-top: 20px;
+  margin: auto;
+}
+
+.select-cook button{
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size:15px;
+  width:150px;
+  height:30px;
+  padding: 5px;
+  background: rgba(38, 201, 158, 0.673);
+  border-radius:5px;
+  cursor: pointer;
+}

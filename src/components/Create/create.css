@@ -1,0 +1,46 @@
+.create_recipe{
+  margin-bottom: 60px;
+}
+
+.lists{
+  display: inline-block;
+  margin: auto;
+  margin-top: 40px;
+}
+
+.create_recipe fieldset{
+  margin: auto;
+  padding-top: 20px;
+  margin-bottom: 25px;
+  width: 80%;
+}
+
+.create_recipe input{
+  margin: 5px;
+}
+
+.ingredient-list{
+  width: 40%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 20px;
+  margin-top: 40px;
+}
+
+.instructions-list{
+  width: 40%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 20px;
+  margin-top: 40px;
+}
+
+button{
+  font-size:15px;
+  width:150px;
+  height:30px;
+  padding: 5px;
+  background: rgba(38, 201, 158, 0.673);
+  border-radius:5px;
+  cursor: pointer;
+}

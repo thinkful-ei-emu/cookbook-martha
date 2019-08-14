@@ -1,36 +1,40 @@
 import React from 'react';
-import { Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import CookbookContext from '../../contexts/CookbookContext';
+import './list.css';
 
 class List extends React.Component{
   state={
     recipe: [],
     cookbookChoice: null
   }
-
   static contextType = CookbookContext
 
-  componentDidMount() {
-    const { recipe_id } = this.props.match.params;
-    fetch(`http://localhost:8000/api/recipes/${recipe_id}`)
-    .then(res => res.json())
-    .then(recipe => this.setState({
-      recipe: recipe
-    }))
-  };  
-
   onCookbookSelect= (e) => {
+    const cookbook_id = parseInt(e.target.value)
     this.setState({
-      cookbookChoice: e.target.value
+      cookbookChoice: cookbook_id
     })
-  }
+    fetch(`http://localhost:8000/api/cookbooks/${cookbook_id}`)
+    .then(res => {
+      if(!res.ok){
+        return res.json().then(e => {throw e})
+      }
+      return res.json()
+    })
+    .then(rec => rec[0].recipes 
+      ?this.setState({recipe: rec[0].recipes})
+      : this.setState({recipe: []})
+    )
+  };
 
   handleRecipes = e => {
     e.preventDefault();
     const cookbookId = this.state.cookbookChoice;
     const { recipe_id } = this.props.match.params;
-    const updatedCookbook = {recipes: [parseInt(recipe_id)]}
-    console.log(updatedCookbook)
+    const recipeId = parseInt(recipe_id)
+    this.state.recipe.push(recipeId)
+    const updatedCookbook = {recipes: this.state.recipe}
     fetch(`http://localhost:8000/api/cookbooks/${cookbookId}`, {
       method: 'PATCH',
       body: JSON.stringify(updatedCookbook),
@@ -39,13 +43,12 @@ class List extends React.Component{
       },
     })
     .then(res => {
-      if(!res.ok){
-        return res.json().then(e=> Promise.reject(e))
-      }
-      res.json()
+      if (!res.ok)
+        return res.json().then(error => Promise.reject(error))
     })
-    .then(()=> {
+    .then(() => {
       this.context.editCookbook(updatedCookbook)
+      this.props.history.push('/')
     });
   };
 
@@ -64,20 +67,20 @@ class List extends React.Component{
       </div>);
 
   return (
-    <section>
-        <h4>Title:{this.state.recipe.title}</h4>
-        <p>Difficulty: {this.state.recipe.difficulty}, Meal Type: {this.state.recipe.meal_type}</p>
+    <section
+      className="select-cook">
+        <h4>Select Cookbook to Add Recipe</h4>
       <form
         onSubmit={e =>this.handleRecipes(e)}>
-        Add to:
+        <fieldset>
           { cookbookChoice }
         <button 
           type="submit">
           Submit
         </button>
+        </fieldset>
       </form>
-      <br/><br/>
-      <Link to='/recipes'>Back</Link>
+      <Link to='/search'>Back</Link>
     </section>
   );
 }}

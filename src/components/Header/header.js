@@ -10,17 +10,19 @@ class Header extends React.Component {
   
   renderLogout() {
     return(
+      <div className="links">
       <Link 
         onClick={this.handleLogout}
         to='/'>
         Logout
       </Link>
+      </div>
     )
   }
 
   renderLogin() {
     return(
-      <div>
+      <div className="links">
         <Link 
           to='/login'>
           Login
@@ -37,15 +39,14 @@ class Header extends React.Component {
 
   render(){
   return (
-    <header className="header">
-    <Link to={'/'}>  
-      <img className="logo" src="images/shakshuka-1.jpg" alt="logo"/>
-      <h1>myCookbooks</h1>
-    </Link>
-   {TokenService.hasAuthToken()
-    ? this.renderLogout()
-    : this.renderLogin()}
-
+    <header role="banner">
+      {TokenService.hasAuthToken()
+      ? this.renderLogout()
+      : this.renderLogin()}
+      <Link to={'/'}>  
+        <img className="logo" src="images/shakshuka-1.jpg" alt="logo"/>
+        <h1>myCookbooks</h1>
+      </Link>
     </header>
   );
 }}

@@ -1,0 +1,28 @@
+.small-info{
+  font-size: 12px;
+}
+
+hr{
+  width: 65%;
+}
+
+.lists_ingredients{
+  display: inline-block;
+  margin-left:auto;
+  width: 30%;
+}
+
+.lists_instructions{
+  display: inline-block;
+  margin-right: auto;
+  width: 30%;
+}
+
+li{
+  padding: 7px;
+}
+
+.lists{
+  display: flex;
+  margin-top: 0;
+}

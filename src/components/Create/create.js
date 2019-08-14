@@ -1,10 +1,10 @@
 import React from 'react';
 import CookbookContext from '../../contexts/CookbookContext';
 import { Link } from 'react-router-dom'
+import './create.css';
 
 class Create extends React.Component {
   staticDefaultProps={
-
   }
     state = {
       title: '',
@@ -89,6 +89,14 @@ class Create extends React.Component {
     })
   }
   
+  reset = (e) => {
+    this.setState({
+      title: '',
+      ingredients: [],
+      instruction: [],
+    })
+  }
+
   handleCreateFrom = (e) => {
     e.preventDefault()
     const { title, author, serving_size, cook_time, difficulty, meal_type, ingredients, instruction } = this.state
@@ -116,30 +124,37 @@ class Create extends React.Component {
       return res.json()
     })
     .then(res => { 
-      this.setState({
-      title:'',
-      author:'',
-      serving_size:null,
-      cook_time:null,
-      difficulty:'',
-      meal_type:'',
-      ingredients:[],
-      instruction:[],
-    })
+      this.setState(
+        {
+          title:'',
+          author:'',
+          serving_size:null,
+          cook_time:null,
+          difficulty:'',
+          meal_type:'',
+          ingredients:[],
+          instruction:[],
+        }
+        )
       this.context.addRecipe(res)
     });
   };
 
   render(){
   return (
-    <div>
-      <h4>Ready to make your own recipe?</h4>
+    <section className="create_recipe">
+      <Link to='/'>Return Home</Link>
       <form className='add-recipe'
       onSubmit={this.handleCreateFrom}>
+
+      <h4>Ready to make your own recipe?</h4>
+      <fieldset>
       <label>Title:</label>
       <input
       type="text"
       name="title"
+      value={this.state.title}
+      placeholder="eggs benedict"
       required
       onChange={e => this.setTitle(e.target.value)}/>
       <br/>
@@ -147,12 +162,16 @@ class Create extends React.Component {
       <input
       type="text"
       name="author"
+      placeholder="chef best cook"
+      value={this.state.author}
       onChange={e => this.setAuthor(e.target.value)}/>
       <br/>
       <label>Serving size:</label>
       <input
       type="number"
       name="serving"
+      placeholder="4"
+      value={this.state.serving_size}
       required
       onChange={e => this.setServingSize(e.target.value)}/> servings
       <br/>
@@ -160,6 +179,8 @@ class Create extends React.Component {
       <input
       type="number"
       name="time"
+      placeholder="45"
+      value={this.state.cook_time}
       required
       onChange={e => this.setCookTime(e.target.value)}/> minutes
       <br/>
@@ -187,6 +208,8 @@ class Create extends React.Component {
         <option value="other">Other</option>
       </select>
       <br/>
+      <section className="lists">
+      <div className="ingredient-list">
       <label>Ingredients:</label>
       <input
       type="text"
@@ -204,7 +227,8 @@ class Create extends React.Component {
       {(this.state.ingredients.length===0)
       ? ''
       :this.state.ingredients.map((ingredient, index)=> <li key={index}>{ingredient}</li>)}
-      <br/>
+      </div>
+      <div className="instructions-list">
       <label>Instructions:</label>
       <input
       type="text"
@@ -222,11 +246,12 @@ class Create extends React.Component {
       {(this.state.instruction.length===0)
       ? ''
       : this.state.instruction.map((instruction, index)=>  <li key={index}>{instruction}</li>)}
-      <br/><br/>
-      <button type="reset">Reset</button> <button type="submit">Create Recipe</button>
+      </div>
+      </section>
+      </fieldset>
+      <button type="reset" onClick={this.reset}>Reset</button> <button type="submit">Create Recipe</button>
       </form>
-      <Link to='/'>Return Home</Link>
-    </div>
+    </section>
   )
 }}
 

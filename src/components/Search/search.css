@@ -1,0 +1,50 @@
+/* search from styling */
+.search_results{
+  margin-bottom: 60px;
+}
+
+.search_results fieldset{
+  padding-top: 20px;
+  margin-top: 20px;
+}
+
+li{
+  list-style: none;
+  padding: 3px;
+}
+
+.search-recipes{
+  width: 700px;
+  margin: auto;
+}
+
+.search-recipes button {
+  text-align: center;
+}
+
+.search-recipes input {
+  padding: 7px;
+  margin-right: 5px;
+}
+
+.search_list{
+  width: 700px;
+  margin: auto;
+}
+
+
+/* results styling */
+.hidden{
+  display: none;
+}
+
+.list_item{
+  margin-top:25px;
+  margin-bottom: 50px;
+  padding: 5px;
+}
+
+.see-more{
+  margin-top: 20px;
+}
+

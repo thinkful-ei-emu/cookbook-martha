@@ -1,10 +1,13 @@
 import React from 'react';
 import CookbookContext from '../../contexts/CookbookContext'
+import Recipes from './recipes';
 import { Link } from 'react-router-dom';
+import './view.css';
 
 class View extends React.Component {
   state={
-    title:''
+    title:'',
+    recipes: []
   }
   static contextType = CookbookContext;
   
@@ -35,7 +38,9 @@ class View extends React.Component {
     })
     .then(res => {
       this.context.addCookbook(res)
-      this.title=''
+      this.setState({
+        title: ''
+      })
     });
   };
 
@@ -56,33 +61,61 @@ class View extends React.Component {
     })
   }
 
+  getACookbook = (cookbookId) => {
+    fetch(`http://localhost:8000/api/cookbooks/${cookbookId}`)
+    .then(res => res.json())
+    .then(cookbook => this.selectRecipes(cookbook[0].recipes))
+  }
+
+  selectRecipes(ids){
+    console.log(ids);
+    const list = this.context.recipes.filter(recipe => ids.indexOf(recipe.id) >= 0)
+    this.setState({
+      recipes: list
+    })
+  }
+
+
   render() {
     return (
-      <section><h4>View All Your Cookbooks</h4>
+      <section className="view-all">
+        <Link to='/'>Return Home</Link>
         <form 
         onSubmit={e => this.handleCreateCookbook(e)}>
+        <h4>Create a New Cookbook</h4>
+        <fieldset className="add-cookbook">
           <label>New Cookbook Title:</label>
           <input 
           type="text" 
           name="title"
+          value={this.state.title}
+          placeholder="My Favorite Recipes"
           required
           onChange={e => this.setTitle(e.target.value)}></input>
           <button type="submit">Add Cookbook</button>
+        </fieldset>
         </form>
-  
-      <ul>
       {this.context.cookbooks.map(cookbook => 
-      <li key={cookbook.id}>
-      <Link to={`/recipes/${cookbook.id}`}
-      >{cookbook.title}</Link>
+      <section 
+        key={cookbook.id}
+        className="cookbook-title">{cookbook.title} 
+      <div 
+        className="buttons">
+      <button 
+        className="view-cookbook"
+        type="button"
+        onClick={e => this.getACookbook(cookbook.id)}
+      >View</button>
 
       <button 
         type="button"
+        className="delete-cookbook"
         onClick={e=> this.handleDeleteCookbook(cookbook.id, this.context.deleteCookbook)}
-        >Delete Cookbook</button>
-      </li>)}
-      </ul>
-      <Link to='/'>Return Home</Link>
+        >Delete</button>
+        </div>
+      </section>)}
+      <Recipes 
+        displayRecipes={this.state.recipes}/>
       </section>
     );
 }}

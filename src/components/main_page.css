@@ -1,0 +1,37 @@
+* {
+  box-sizing: border-box;
+}
+
+p{
+  margin-bottom: 50px;
+  margin-top: 30px;
+}
+
+.manage a{
+  font-size: 25px;
+  color:rgba(7, 92, 70, 0.673);
+}
+
+.create a{
+  font-size: 25px;
+  color: rgba(7, 92, 70, 0.673);
+}
+
+.search a{
+  font-size: 25px;
+  color: rgba(7, 92, 70, 0.673);
+}
+
+.manage_cook a{
+  font-size: 25px;
+  color: rgba(7, 92, 70, 0.673);
+}
+
+.search{
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.manage_cook{
+  padding-bottom: 30px;
+}

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import AuthApiService from '../../services/auth-api-service';
+import './registration.css';
 
 export default class Register extends Component {
   static defaultProps = {
@@ -48,22 +49,27 @@ export default class Register extends Component {
       </div>
         <h4>Ready to start organizing your own cookbooks!</h4>
         <p>Create your account today!</p>
+      <fieldset>
       <label>Full Name</label>
       <input
       name='full_name'
       type='text'
+      placeholder="chef cook"
       required/>
       <label>Username</label>
       <input
       name='user_name'
       type='text'
+      placeholder="loveCooking"
       required/>
       <label>Password</label>
       <input
       name='password'
       type='password'
+      placeholder="password"
       required/>
       <button type="submit">Submit</button>
+      </fieldset>
       <Link to={'/login'}>Already have an account? Login here.</Link>
       </form>
     )

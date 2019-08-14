@@ -9,10 +9,10 @@ import Register from './components/Login_Forms/registration';
 import MainPage from './components/main_page';
 import Search from './components/Search/search';
 import Create from './components/Create/create';
-import ListRecipes from './components/Create/list_recipes'
 import List from './components/Create/list';
 import View from './components/View/view';
-import Recipes from './components/View/recipes'
+import Recipes from './components/View/recipes';
+import seeMore from './components/Search/seeMore';
 import './App.css';
 import CookbookContext from './contexts/CookbookContext';
 
@@ -49,7 +49,7 @@ class App extends React.Component {
       cookbooks: this.state.cookbooks.map(cookbook => 
         (cookbook.id !== updatedCookbook.id) 
         ? cookbook
-        : updatedCookbook)
+        : {...updatedCookbook})
     })
   }
 
@@ -89,9 +89,9 @@ class App extends React.Component {
           <PrivateRoute exact path={'/'} component={MainPage} />
           <PrivateRoute exact path={'/search'} component={Search} />
           <PrivateRoute exact path={'/create'} component={Create} />
-          <PrivateRoute exact path={'/recipes'} component={ListRecipes}/>
           <PrivateRoute exact path={'/list/:recipe_id'} component={List}/>
           <PrivateRoute exact path={'/view'} component={View} />
+          <PrivateRoute exact path={'/seeMore/:recipe_id'} component={seeMore}/>
           <PrivateRoute exact path={'/recipes/:cookbook_id'} component={Recipes} />
         </main>
         <Footer/>

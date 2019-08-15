@@ -2,25 +2,25 @@
   margin-bottom: 60px;
 }
 
-.lists{
-  display: inline-block;
-  margin: auto;
-  margin-top: 40px;
+.create_recipe input{
+  margin: 5px;
 }
 
 .create_recipe fieldset{
   margin: auto;
   padding-top: 20px;
   margin-bottom: 25px;
-  width: 80%;
+  width: 75%;
 }
 
-.create_recipe input{
-  margin: 5px;
+.both-lists{
+  display: flex;
+  margin: auto;
+  margin-top: 0px;
 }
 
 .ingredient-list{
-  width: 40%;
+  width: 70%;
   margin-right: auto;
   margin-left: auto;
   margin-bottom: 20px;
@@ -28,7 +28,7 @@
 }
 
 .instructions-list{
-  width: 40%;
+  width: 70%;
   margin-right: auto;
   margin-left: auto;
   margin-bottom: 20px;
@@ -43,4 +43,13 @@ button{
   background: rgba(38, 201, 158, 0.673);
   border-radius:5px;
   cursor: pointer;
+}
+
+/* if on bigger screen */
+@media only screen and (max-width: 768px) {
+  .both-lists{
+    display: inline-block;
+    margin: auto;
+    margin-top: 0px;
+  }
 }

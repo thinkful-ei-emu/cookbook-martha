@@ -209,7 +209,7 @@ class Create extends React.Component {
         <option value="other">Other</option>
       </select>
       <br/>
-      <section className="lists">
+      <section className="both-lists">
       <div className="ingredient-list">
       <label>Ingredients:</label>
       <input

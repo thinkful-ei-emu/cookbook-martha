@@ -2,6 +2,7 @@ import React from 'react';
 import CookbookContext from '../../contexts/CookbookContext';
 import { Link } from 'react-router-dom'
 import './create.css';
+import config from '../../config';
 
 class Create extends React.Component {
   staticDefaultProps={
@@ -110,7 +111,7 @@ class Create extends React.Component {
       ingredients: ingredients,
       instruction: instruction
     }
-    fetch('https://infinite-eyrie-86661.herokuapp.com/recipes', {
+    fetch(`${config.API_ENDPOINT}/api/recipes`, {
       method: 'POST',
       body: JSON.stringify(recipe),
       headers: {

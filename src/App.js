@@ -15,6 +15,7 @@ import Recipes from './components/View/recipes';
 import seeMore from './components/Search/seeMore';
 import './App.css';
 import CookbookContext from './contexts/CookbookContext';
+import config from './config';
 
 class App extends React.Component {
   state = {
@@ -54,13 +55,13 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch('https://infinite-eyrie-86661.herokuapp.com/cookbooks')
+    fetch(`${config.API_ENDPOINT}/api/cookbooks`)
       .then(res => res.json())
       .then(cookbooks => this.setState({
         cookbooks: cookbooks
       }))
       
-      fetch('https://infinite-eyrie-86661.herokuapp.com/recipes')
+      fetch(`${config.API_ENDPOINT}/api/recipes`)
       .then(res => res.json())
       .then(recipes => this.setState({
         recipes: recipes

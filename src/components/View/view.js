@@ -3,6 +3,7 @@ import CookbookContext from '../../contexts/CookbookContext'
 import Recipes from './recipes';
 import { Link } from 'react-router-dom';
 import './view.css';
+import config from '../../config';
 
 class View extends React.Component {
   state={
@@ -23,7 +24,7 @@ class View extends React.Component {
     const newCookbook = { 
       title: title
     }
-    fetch('https://infinite-eyrie-86661.herokuapp.com/cookbooks', {
+    fetch(`${config.API_ENDPOINT}/api/cookbooks`, {
       method: 'POST',
       body: JSON.stringify(newCookbook),
       headers: {
@@ -45,7 +46,7 @@ class View extends React.Component {
   };
 
   handleDeleteCookbook = (cookbookId, callback) => {
-    fetch(`https://infinite-eyrie-86661.herokuapp.com/cookbooks/${cookbookId}`, {
+    fetch(`${config.API_ENDPOINT}/api/cookbooks/${cookbookId}`, {
       method: 'DELETE',
       headers: {
         'content-type': 'application/json'
@@ -62,7 +63,7 @@ class View extends React.Component {
   }
 
   getACookbook = (cookbookId) => {
-    fetch(`https://infinite-eyrie-86661.herokuapp.com/cookbooks/${cookbookId}`)
+    fetch(`${config.API_ENDPOINT}/api/cookbooks/${cookbookId}`)
     .then(res => res.json())
     .then(cookbook => this.selectRecipes(cookbook[0].recipes))
   }

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import CookbookContext from '../../contexts/CookbookContext';
 import './list.css';
+import config from '../../config';
 
 class List extends React.Component{
   state={
@@ -15,7 +16,7 @@ class List extends React.Component{
     this.setState({
       cookbookChoice: cookbook_id
     })
-    fetch(`https://infinite-eyrie-86661.herokuapp.com/cookbooks/${cookbook_id}`)
+    fetch(`${config.API_ENDPOINT}/api/cookbooks/${cookbook_id}`)
     .then(res => {
       if(!res.ok){
         return res.json().then(e => {throw e})
@@ -35,7 +36,7 @@ class List extends React.Component{
     const recipeId = parseInt(recipe_id)
     this.state.recipe.push(recipeId)
     const updatedCookbook = {recipes: this.state.recipe}
-    fetch(`https://infinite-eyrie-86661.herokuapp.com/cookbooks/${cookbookId}`, {
+    fetch(`${config.API_ENDPOINT}/api/cookbooks/${cookbookId}`, {
       method: 'PATCH',
       body: JSON.stringify(updatedCookbook),
       headers: { 

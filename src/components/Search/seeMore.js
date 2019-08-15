@@ -2,6 +2,7 @@ import React from 'react'
 import CookbookContext from '../../contexts/CookbookContext';
 import { Link } from 'react-router-dom'
 import './seeMore.css';
+import config from '../../config';
 
 class seeMore extends React.Component {
   static contextType = CookbookContext;
@@ -10,7 +11,7 @@ class seeMore extends React.Component {
   }
 
   componentDidMount = () => {
-    fetch(`https://infinite-eyrie-86661.herokuapp.com/recipes/${this.props.match.params.recipe_id}`)
+    fetch(`${config.API_ENDPOINT}/api/recipes/${this.props.match.params.recipe_id}`)
       .then(res=> res.json())
       .then(recipe => this.setState({
         recipe: recipe

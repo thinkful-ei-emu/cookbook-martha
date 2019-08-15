@@ -12,7 +12,7 @@ import Create from './components/Create/create';
 import List from './components/Create/list';
 import View from './components/View/view';
 import Recipes from './components/View/recipes';
-import seeMore from './components/Search/seeMore';
+import seeMore from './components/Search/seemore';
 import './App.css';
 import CookbookContext from './contexts/CookbookContext';
 import config from './config';
@@ -92,7 +92,7 @@ class App extends React.Component {
           <PrivateRoute exact path={'/create'} component={Create} />
           <PrivateRoute exact path={'/list/:recipe_id'} component={List}/>
           <PrivateRoute exact path={'/view'} component={View} />
-          <PrivateRoute exact path={'/seeMore/:recipe_id'} component={seeMore}/>
+          <PrivateRoute exact path={'/seemore/:recipe_id'} component={seeMore}/>
           <PrivateRoute exact path={'/recipes/:cookbook_id'} component={Recipes} />
         </main>
         <Footer/>

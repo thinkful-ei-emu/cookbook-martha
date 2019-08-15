@@ -48,6 +48,7 @@ class Login extends React.Component {
     <div>
     <h4> Welcome Back! Ready to start cooking? </h4>
     <p>User Login</p>
+    <p>To Use Test User enter: Username: test Password: Test1234!</p>
     <form 
     onSubmit={this.handleSubmitJwtAuth}
     className='login_form'>
@@ -55,13 +56,13 @@ class Login extends React.Component {
         {error && <p className='red'>Oops..{error}</p>}
       </div>
       <fieldset name="login">
-      <label for="username"> Username </label>
+      <label htmlFor="username"> Username </label>
       <input 
       name='user_name'
       type='text' 
       placeholder='your username'
       required />
-      <label for="password"> Password </label>
+      <label htmlFor="password"> Password </label>
       <input 
       name='password'
       type='password' 

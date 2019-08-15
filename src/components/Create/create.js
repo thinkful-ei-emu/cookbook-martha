@@ -10,8 +10,8 @@ class Create extends React.Component {
     state = {
       title: '',
       author: '',
-      serving_size: null,
-      cook_time: null,
+      serving_size: undefined,
+      cook_time: undefined,
       difficulty: '',
       meal_type: '',
       ingredients: [],

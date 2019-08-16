@@ -24,20 +24,21 @@ Routes within this Application:
 
 ##Screenshots of myCookbook App
 
-<img src="images/loginPage.png" width="100">
+<img src="images/loginPage.png">
 
-<img src="images/landingPage.png" width="100">
+<img src="images/landingPage.png">
 
-<img src="images/cookbookPage.png" width="100">
+<img src="images/cookbookPage.png">
 
-<img src="images/recipePage.png" width="100">
+<img src="images/recipePage.png">
 
-<img src="images/addForm.png" width="100">
+<img src="images/addForm.png">
 
 #Summary of Application
 This cookbook application allows users to search, create and organize recipes into multiple cookbooks. This will make organization for home cooks expontentially better. 
 
 Future Ideas:
+0. Each user would only have access to their own cookbooks, but could add any recipe to their cookbooks.
 1. This application also has sights for catering to restaurants who rotate through different cookbooks/menus. 
 2. Allow rating of recipes/cookbook 
 

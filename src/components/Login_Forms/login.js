@@ -45,10 +45,12 @@ class Login extends React.Component {
   render() {
     const { error } = this.state
   return (
-    <div>
+    <div className="login-page">
     <h4> Welcome Back! Ready to start cooking? </h4>
     <p>User Login</p>
-    <p>To Use Test User enter: Username: test Password: Test1234!</p>
+    <p>To Use Test User enter: <br/>
+      Username: test <br/>
+      Password: Test1234!</p>
     <form 
     onSubmit={this.handleSubmitJwtAuth}
     className='login_form'>

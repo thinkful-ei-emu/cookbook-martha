@@ -49,7 +49,9 @@ export default class Register extends Component {
       </div>
         <h4>Ready to start organizing your own cookbooks!</h4>
         <p>Create your account today!</p>
-        <p>To Use Test User go to Login and enter: Username: test Password: Test1234!</p>
+        <p>To Use Test User go to Login and enter: <br/>
+          Username: test <br/>
+          Password: Test1234!</p>
       <fieldset>
       <label>Full Name</label>
       <input

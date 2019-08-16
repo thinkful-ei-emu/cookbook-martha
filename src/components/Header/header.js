@@ -44,7 +44,6 @@ class Header extends React.Component {
       ? this.renderLogout()
       : this.renderLogin()}
       <Link to={'/'}>  
-        <img className="logo" src="images/shakshuka-1.jpg" alt="logo"/>
         <h1>myCookbooks</h1>
       </Link>
     </header>

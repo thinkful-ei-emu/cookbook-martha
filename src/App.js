@@ -12,7 +12,7 @@ import Create from './components/Create/create';
 import List from './components/Create/list';
 import View from './components/View/view';
 import Recipes from './components/View/recipes';
-import seeMore from './components/Search/seemore';
+import seeMore from './components/Search/seeMore';
 import './App.css';
 import CookbookContext from './contexts/CookbookContext';
 import config from './config';

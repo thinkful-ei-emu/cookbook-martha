@@ -10,7 +10,7 @@ Link to live applicato: https://my-cookbook-app.maplantz89.now.sh/
 
 <img src="images/cookbookPage.png" width="200">
 
-<img src="images/recipePage.png" width="200"
+<img src="images/recipePage.png" width="200">
 
 <img src="images/addForm.png" width="200">
 

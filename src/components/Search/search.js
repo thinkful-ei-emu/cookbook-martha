@@ -63,7 +63,7 @@ class Search extends React.Component {
     {this.state.results.length === 0
     ? 
     
-    <section className="search_list">
+    <section className="search_list">No recipe matching search term
       {this.context.recipes.map((recipe, index)=> 
       <div key={index}>
         <ul className="list_item">

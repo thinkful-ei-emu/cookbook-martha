@@ -138,6 +138,7 @@ class Create extends React.Component {
         }
         )
       this.context.addRecipe(res)
+      this.props.history.push(`seeMore/${res.id}`)
     });
   };
 

@@ -46,11 +46,15 @@ class Login extends React.Component {
     const { error } = this.state
   return (
     <div className="login-page">
-    <h4> Welcome Back! Ready to start cooking? </h4>
-    <p>User Login</p>
-    <p>To Use Test User enter: <br/>
-      Username: test <br/>
-      Password: Test1234!</p>
+    <div className="landing-info">
+     <h2> Why use myCookbooks?</h2>
+      <h3>Create Cookbooks</h3> 
+      You will be able to view and add recipes to cookbooks, currently 
+      cookbooks are shared with all users. 
+      <h3>Create Recipes</h3>
+      You will be able to contribute and create your own recipe which will be searchable 
+      by anyone to add to a cookbook. 
+    </div>
     <form 
     onSubmit={this.handleSubmitJwtAuth}
     className='login_form'>
@@ -70,6 +74,9 @@ class Login extends React.Component {
       type='password' 
       placeholder='your password'
       required />
+      <p>To Use Test User enter: <br/>
+      Username: test <br/>
+      Password: Test1234!</p>
       <button type="submit">Login</button>
       </fieldset>
       <Link to={'/register'}> Need an Account? Create Account Here </Link>

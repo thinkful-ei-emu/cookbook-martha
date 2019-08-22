@@ -49,9 +49,6 @@ export default class Register extends Component {
       </div>
         <h4>Ready to start organizing your own cookbooks!</h4>
         <p>Create your account today!</p>
-        <p>To Use Test User go to Login and enter: <br/>
-          Username: test <br/>
-          Password: Test1234!</p>
       <fieldset>
       <label>Full Name</label>
       <input
@@ -71,6 +68,7 @@ export default class Register extends Component {
       type='password'
       placeholder="password"
       required/>
+      <span className="password-requirements">Password must include atleast one uppercase, lowercase, number, special character and be more than 7 characters in length. </span>
       <button type="submit">Submit</button>
       </fieldset>
       <Link to={'/login'}>Already have an account? Login here.</Link>

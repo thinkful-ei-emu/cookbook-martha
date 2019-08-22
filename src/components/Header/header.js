@@ -26,9 +26,7 @@ class Header extends React.Component {
         <Link 
           to='/login'>
           Login
-        </Link>
-        <br/>
-        <Link 
+        </Link> <Link 
           to='/register'>
           Register
         </Link>
@@ -43,9 +41,11 @@ class Header extends React.Component {
       {TokenService.hasAuthToken()
       ? this.renderLogout()
       : this.renderLogin()}
+      <div className="title">
       <Link to={'/'}>  
         <h1>myCookbooks</h1>
       </Link>
+      </div>
     </header>
   );
 }}

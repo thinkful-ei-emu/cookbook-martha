@@ -9,6 +9,15 @@
   margin-bottom: 70px;
 }
 
+.landing-info{
+  background-color: rgba(177, 96, 177, 0.865);
+  color: white;
+  padding: 10px;
+  padding-bottom: 25px;
+  margin-top: 0;
+  margin-bottom: 50px;
+}
+
 h4{
   text-align: center;
 }
@@ -43,7 +52,6 @@ h4{
   padding: 10px;
   background: rgba(38, 201, 158, 0.673);
   border-radius:5px;
-  margin-top: 45px;
   cursor: pointer;
 }
 

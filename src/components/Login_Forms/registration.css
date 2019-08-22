@@ -43,11 +43,14 @@ h4{
   padding: 10px;
   background: rgba(38, 201, 158, 0.673);
   border-radius:5px;
-  margin-top: 45px;
   cursor: pointer;
 }
 
 a{
   font-size: 15px;
   text-align: center;
+}
+
+.password-requirements{
+  font-size: 10px;
 }

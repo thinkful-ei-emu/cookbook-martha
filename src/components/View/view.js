@@ -69,7 +69,6 @@ class View extends React.Component {
   }
 
   selectRecipes(ids){
-    console.log(ids);
     const list = this.context.recipes.filter(recipe => ids.indexOf(recipe.id) >= 0)
     this.setState({
       recipes: list

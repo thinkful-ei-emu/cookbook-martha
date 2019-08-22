@@ -8,16 +8,16 @@ header{
   margin-bottom: 0;
   font-weight: 300;
   padding: 10px;
-  padding-bottom: 30px;
+  padding-bottom: 40px;
   top: 0;
   width: 100%;
   background-color: rgba(38, 201, 157, 0.427);
 }
 
-.links{
-  float: right;
+h1{
+  text-align: center;
 }
 
-img{
-  float: left;
+.links{
+  text-align: right;
 }

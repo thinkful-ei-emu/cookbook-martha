@@ -10,7 +10,10 @@ render() {
   return (
     <>
     <hr className="cook"/>
-    {this.props.displayRecipes.map((recipeId, index) => 
+    {this.props.displayRecipes.length === 0 ? 
+    <p>No cookbook selected or you need to add recipes to the cookbook</p>
+    :
+    this.props.displayRecipes.map((recipeId, index) => 
       <p key={index}>
         Title: {recipeId.title} <Link to={`seeMore/${recipeId.id}`}>See More</Link>
       </p>)}

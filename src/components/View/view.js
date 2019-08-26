@@ -69,10 +69,16 @@ class View extends React.Component {
   }
 
   selectRecipes(ids){
+    if (ids === null) {
+      this.setState({
+        recipes: []
+      })
+    } else{
     const list = this.context.recipes.filter(recipe => ids.indexOf(recipe.id) >= 0)
     this.setState({
       recipes: list
     })
+  }
   }
 
 

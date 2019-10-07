@@ -21,7 +21,7 @@ class seeMore extends React.Component {
   render(){
     return (
       <section>
-      <Link to='/'>Return Home</Link>
+      <Link to='/view'>Return Home</Link>
       {this.state.recipe.length === 0 
       ? <div>Loading...</div>
       :<ul className="list_item">

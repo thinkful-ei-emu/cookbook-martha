@@ -1,7 +1,6 @@
 import React from 'react';
 import CookbookContext from '../../contexts/CookbookContext'
 import Recipes from './recipes';
-import { Link } from 'react-router-dom';
 import './view.css';
 import config from '../../config';
 
@@ -85,7 +84,6 @@ class View extends React.Component {
   render() {
     return (
       <section className="view-all">
-        <Link to='/'>Return Home</Link>
         <form 
         onSubmit={e => this.handleCreateCookbook(e)}>
         <h4>Create a New Cookbook</h4>

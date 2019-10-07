@@ -44,7 +44,6 @@ class Search extends React.Component {
   render(){
   return (
     <section className="search_results">
-    <Link to='/'>Return Home</Link>
     <form onSubmit={this.handleSearchForm}>
     <fieldset className="search-recipes">
       <label>Search for Recipes:</label>
@@ -84,7 +83,7 @@ class Search extends React.Component {
     <Results results={this.state.results}/>
     </section>
     }
-    <Link to='/'>Return Home</Link>
+    <Link to='/view'>Return Home</Link>
     </section>
   );
 }

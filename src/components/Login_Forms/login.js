@@ -53,7 +53,7 @@ class Login extends React.Component {
       cookbooks are shared with all users. 
       <h3>Create Recipes</h3>
       You will be able to contribute and create your own recipe which will be searchable 
-      by anyone to add to a cookbook. 
+      by anyone who has an account. Additionally, individuals will be able to add your reciep to a cookbook. 
     </div>
     <form 
     onSubmit={this.handleSubmitJwtAuth}

@@ -1,6 +1,5 @@
 import React from 'react';
 import CookbookContext from '../../contexts/CookbookContext';
-import { Link } from 'react-router-dom'
 import './create.css';
 import config from '../../config';
 
@@ -145,7 +144,6 @@ class Create extends React.Component {
   render(){
   return (
     <section className="create_recipe">
-      <Link to='/'>Return Home</Link>
       <form className='add-recipe'
       onSubmit={this.handleCreateFrom}>
 

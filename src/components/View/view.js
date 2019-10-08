@@ -1,6 +1,7 @@
 import React from 'react';
 import CookbookContext from '../../contexts/CookbookContext'
 import Recipes from './recipes';
+import MainPage from '../main_page';
 import './view.css';
 import config from '../../config';
 
@@ -84,6 +85,7 @@ class View extends React.Component {
   render() {
     return (
       <section className="view-all">
+        <MainPage /> 
         <form 
         onSubmit={e => this.handleCreateCookbook(e)}>
         <h4>Create a New Cookbook</h4>

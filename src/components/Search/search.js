@@ -2,6 +2,7 @@ import React from 'react';
 import Results from './results';
 import CookbookContext from '../../contexts/CookbookContext';
 import { Link } from 'react-router-dom';
+import MainPage from '../main_page';
 import './search.css';
 
 class Search extends React.Component {
@@ -44,6 +45,7 @@ class Search extends React.Component {
   render(){
   return (
     <section className="search_results">
+    <MainPage />
     <form onSubmit={this.handleSearchForm}>
     <fieldset className="search-recipes">
       <label>Search for Recipes:</label>

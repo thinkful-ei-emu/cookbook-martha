@@ -1,5 +1,6 @@
 import React from 'react';
 import CookbookContext from '../../contexts/CookbookContext';
+import MainPage from '../main_page';
 import './create.css';
 import config from '../../config';
 
@@ -144,6 +145,7 @@ class Create extends React.Component {
   render(){
   return (
     <section className="create_recipe">
+    <MainPage />
       <form className='add-recipe'
       onSubmit={this.handleCreateFrom}>
 

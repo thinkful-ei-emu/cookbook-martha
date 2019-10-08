@@ -4,15 +4,15 @@ Link to live application: https://my-cookbook-app.maplantz89.now.sh/
 
 ## Screenshots of myCookbook App
 
-<img src="images/loginPage.png">
+<img src="images/loginPage.png" height="300">
 
-<img src="images/landingPage.png">
+<img src="images/landingPage.png" height="300">
 
-<img src="images/cookbookPage.png">
+<img src="images/cookbookPage.png" height="300">
 
-<img src="images/recipePage.png">
+<img src="images/recipePage.png" height="300">
 
-<img src="images/addForm.png">
+<img src="images/addForm.png" height="300">
 
 # Summary of Application
 This cookbook application allows users to search, create and organize recipes into multiple cookbooks. This will make organization for home cooks expontentially better. 

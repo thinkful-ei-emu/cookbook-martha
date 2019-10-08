@@ -18,7 +18,7 @@ class Login extends React.Component {
 
   handleLoginSuccess = () => {
     const { location, history } = this.props;
-    const destination = (location.state || {}).from || '/';
+    const destination = (location.state || {}).from || '/view';
     history.push(destination)
   }
 

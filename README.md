@@ -18,9 +18,10 @@ Link to live application: https://my-cookbook-app.maplantz89.now.sh/
 This cookbook application allows users to search, create and organize recipes into multiple cookbooks. This will make organization for home cooks expontentially better. 
 
 Future Ideas:
-0. Each user would only have access to their own cookbooks, but could add any recipe to their cookbooks.
-1. This application also has sights for catering to restaurants who rotate through different cookbooks/menus. 
-2. Allow rating of recipes/cookbook 
+
+1. Each user would only have access to their own cookbooks, but could add any recipe to their cookbooks.
+2. This application also has sights for catering to restaurants who rotate through different cookbooks/menus. 
+3. Allow rating of recipes/cookbook 
 
 ## API Documentation
 Routes within this Application:
